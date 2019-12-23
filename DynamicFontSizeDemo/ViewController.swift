@@ -11,27 +11,21 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    var productList: [[String: Any]] = [["name": "Test", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test1", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test2", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test3", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test4", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test5", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test6", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test7", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test8", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."],
-                                        ["name": "Test9", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."]]
+    var productList: [[String: Any]] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "Demo"
+        getProductList()
         tableView.tableFooterView = UIView()
-        tableView.estimatedRowHeight = 50.0
-        tableView.rowHeight = UITableView.automaticDimension
-        tableView.reloadData()
         // Do any additional setup after loading the view, typically from a nib.
     }
-
+    
+    func getProductList() {
+      for i in 1...10 {
+        productList.append(["name": "Test \(i)", "desc": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."])
+      }
+    }
 
 }
 
@@ -47,7 +41,7 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
         }
         let productDetail = productList[indexPath.row]
         cell.nameLabel.text = productDetail["name"] as? String
-        cell.descriptionlabel.text = productDetail["desc"] as? String
+        cell.descriptionLabel.text = productDetail["desc"] as? String
         return cell
     }
     

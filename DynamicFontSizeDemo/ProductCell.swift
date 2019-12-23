@@ -12,7 +12,7 @@ class ProductCell: UITableViewCell {
 
     @IBOutlet weak var productImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
-    @IBOutlet weak var descriptionlabel: UILabel!
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var openButton: UIButton!
     
     override func awakeFromNib() {
