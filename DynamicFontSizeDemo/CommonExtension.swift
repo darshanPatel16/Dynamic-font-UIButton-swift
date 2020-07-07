@@ -10,14 +10,8 @@ import UIKit
 
 extension UIButton {
     
-    func setDynamicFontSize() {
-        NotificationCenter.default.addObserver(self, selector: #selector(setButtonDynamicFontSize),
-                                               name: UIContentSizeCategory.didChangeNotification,
-                                               object: nil)
-    }
-    
-    @objc func setButtonDynamicFontSize() {
-        Common.setButtonTextSizeDynamic(button: self, textStyle: .callout)
+    func setDynamicFontSize(textStyle: UIFont.TextStyle = .callout) {
+        Common.setButtonTextSizeDynamic(button: self, textStyle: textStyle)
     }
     
 }
